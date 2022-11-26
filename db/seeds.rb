@@ -1,7 +1,7 @@
 puts "🌱 Seeding spices..."
 
 # Seed your database here
-
+# primary key is implicit in creating new roommate instances
 
     Roommate.create(firstname: 'Eric', lastname: 'Yanez', gender: 'Male',age: rand(18..60))
     Roommate.create(firstname: 'Santi', lastname: 'Tapia', gender: 'Male', age: rand(18..60)) 
@@ -12,7 +12,7 @@ puts "🌱 Seeding spices..."
     Roommate.create(firstname: 'Sol', lastname: 'Yanez', gender: "Female", age: rand(18..60))   
     
 
-
+# Each review has a primary key along with a foreign key. However the Foreign key must be defines unlike the primary key
     Review.create(friendly: rand(1..5), clean: rand(1..5), vibes: rand(1..5), foodthief: Faker::Boolean.boolean, comment: Faker::Verb.base, roommate_id: 1
     )
     Review.create(friendly: rand(1..5), clean: rand(1..5), vibes: rand(1..5), foodthief: Faker::Boolean.boolean, comment: Faker::Verb.base, roommate_id: 2
