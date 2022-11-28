@@ -6,8 +6,11 @@ class ApplicationController < Sinatra::Base
     { message: "Good luck with your project!" }.to_json
   end
 
-  get '/test' do
-    "Hello Eric, This is working and running"
+  get '/roommate' do
+    roommate = Roommate.all
+    # Active record makes it easy to return all roommates from the database
+    # convert the list of Active record objects into JSON formatted strings.
+    roommate.to_json
   end
 
 end
