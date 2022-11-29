@@ -7,9 +7,14 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/roommate' do
-    roommate = Roommate.all
+    roommate = Roommate.all.order(:firstname)
     # Active record makes it easy to return all roommates from the database
     # convert the list of Active record objects into JSON formatted strings.
+    roommate.to_json
+  end
+
+  get '/roommate/:id' do
+    roommate = Roommate.find(params[:id])
     roommate.to_json
   end
 
