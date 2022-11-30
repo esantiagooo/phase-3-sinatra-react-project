@@ -15,7 +15,9 @@ class ApplicationController < Sinatra::Base
 
   get '/roommate/:id' do
     roommate = Roommate.find(params[:id])
-    roommate.to_json
+    roommate.to_json(include: :reviews)
+    # Through Active record method the user can search for a specific id, through the find method.
+    # to_json method allows the user to include a second arguemnt. such as associated reviews to that specific id
   end
 
 end
