@@ -1,3 +1,4 @@
+require 'pry'
 class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
   
@@ -18,6 +19,17 @@ class ApplicationController < Sinatra::Base
     roommate.to_json(include: :reviews)
     # Through Active record method the user can search for a specific id, through the find method.
     # to_json method allows the user to include a second arguemnt. such as associated reviews to that specific id
+  end
+
+  post '/roommate' do 
+    # binding.pry
+    roommate = Roommate.create(
+      firstname: params[:firstname],
+      lastname: params[:lastname],
+      gender: params[:age],
+      age: params[:age]
+    )
+    roommate.to_json
   end
 
 end
