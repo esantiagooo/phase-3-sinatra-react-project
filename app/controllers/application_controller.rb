@@ -32,4 +32,23 @@ class ApplicationController < Sinatra::Base
     roommate.to_json
   end
 
+  get '/review' do
+    review = Review.all
+
+    review.to_json
+  end
+
+  post '/review' do
+    # binding.pry
+    review = Review.create(
+      friendly: params[:friendly],
+      clean: params[:clean],
+      vibes: params[:vibes],
+      foodthief: params[:foodthief],
+      comment: params[:comment],
+      roommate_id: params[:roommate_id]
+    )
+    review.to_json
+  end
+
 end
