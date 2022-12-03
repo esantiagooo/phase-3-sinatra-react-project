@@ -64,4 +64,13 @@ class ApplicationController < Sinatra::Base
     review.to_json
   end
 
+  delete '/review/:id' do
+    review = Review.find(params[:id])
+    # find the review base on the id
+    review.destroy
+    # delete the review
+    review.to_json
+    # send a response with the deleted review as JSON
+  end
+
 end
