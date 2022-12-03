@@ -65,6 +65,7 @@ class ApplicationController < Sinatra::Base
   end
 
   delete '/review/:id' do
+    
     review = Review.find(params[:id])
     # find the review base on the id
     review.destroy
